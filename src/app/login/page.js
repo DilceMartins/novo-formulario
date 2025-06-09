@@ -1,12 +1,17 @@
 'use client'
+
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+
 import { useAuth } from '../../hooks/useAuth'
 import { loginUsuario } from '@/utils/auth'
+
 import './style.css'
+
 export default function LoginPage() {
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
+    
     const { login, user } = useAuth(false)
     const router = useRouter()
 
@@ -25,19 +30,20 @@ export default function LoginPage() {
     }
 
     return (
-        <>
-        <h2>Formulário de Cadastro</h2>
-        <form id="userForm">
-            <label forhtml="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required/>
-            <label forhtml="endereco">Endereço:</label>
-            <input type="text" id="endereco" name="endereco" placeholder="Digite seu endereço" required/>
-            <label forhtml="telefone">Telefone:</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone" required/>
-            <button type="button" onclick="submitForm()">Enviar</button>
-        </form>
-    
-        </>
-        
+        <div className='main'>
+            <div className='form-container'>
+                <h1 className='title'>Login</h1>
+
+                <form className="formulario">
+                    <label htmlFor="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu E-mail" required />
+
+                    <label htmlFor="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+
+                    <button type="button" onClick={handleLogin}>Enviar</button>
+                </form>
+            </div>
+        </div>
     )
 }

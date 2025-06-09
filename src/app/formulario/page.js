@@ -75,27 +75,27 @@ export default function Formulario() {
     }
 
     return (
-        <div>
-            <h1>Formulário de Interação</h1>
-            {/* seus alunos implementam os inputs com setFormData aqui */}
-            <button onClick={handleSubmit}>Enviar</button>
-            <div class="form-container">
- <h1>Formulário de Discussão em Sala</h1>
- <p>Responda às perguntas abaixo com base no que discutimos em sala de aula.</p>
- <form>
- <label forhtml="nome">1. Qual é o seu nome?</label>
- <input type="text" id="nome" name="nome" required/>
+        <div className='main'>
+             <div className="form-container">
+                <h1 className='title'>Formulário de Discussão em Sala</h1>
+                <p>Responda às perguntas abaixo com base no que discutimos em sala de aula.</p>
+                
+                <form className='formulario'>
+                    <label htmlFor="nome">1. Qual é o seu nome?</label>
+                    <input type="text" id="nome" name="nome" required/>
 
- <label forhtml="tema">2. Qual foi o tema principal da aula?</label>
- <input type="text" id="tema" name="tema" required/>
+                    <label htmlFor="tema">2. Qual foi o tema principal da aula?</label>
+                    <input type="text" id="tema" name="tema" required/>
 
- <label forhtml="opiniao">3. O que você achou mais interessante?</label>
- <textarea id="opiniao" name="opiniao" rows="4" required></textarea>
+                    <label htmlFor="opiniao">3. O que você achou mais interessante?</label>
+                    <textarea id="opiniao" name="opiniao" rows="4" required></textarea>
 
- <label forhtml="duvida">4. Ficou com alguma dúvida?</label>
- <textarea id="duvida" name="duvida" rows="3"></textarea>
- </form>
-        </div>
+                    <label htmlFor="duvida">4. Ficou com alguma dúvida?</label>
+                    <textarea id="duvida" name="duvida" rows="3"></textarea>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
         </div>
     )
 }

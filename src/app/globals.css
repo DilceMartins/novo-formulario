@@ -1,27 +1,10 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --background: #183E55;
+  --button-color: #0c202c;
+  --button-color-hover: #15374d;
+  --input-border-color: #205779;
+  --background-form: #123449;
+  --label-color: rgb(218, 218, 218);
 }
 
 * {
@@ -30,13 +13,83 @@ body {
   margin: 0;
 }
 
+html,
+body {
+  height: 100%;
+  min-height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+label {
+  color: var(--label-color);
+}
+
+.title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+button {
+  font-size: 14px;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  color: white;
+  background-color: var(--button-color);
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--button-color-hover);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
+}
+
+input, textarea {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid var(--input-border-color);
+  outline: none;
+  background-color: white;
+  color: #0c202c;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 3rem;
+  border-radius: 20px;
+  background-color: #112d3f;
+  box-shadow: 0 0 15px var(--background-form);
 }

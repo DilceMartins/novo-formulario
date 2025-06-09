@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '../../hooks/useAuth'
 import { getInteracoesPorIgreja, atualizarStatusInteracao } from '../../utils/admin'
+
 import './style.css'
 
 export default function PainelAdmin() {
@@ -16,7 +17,7 @@ export default function PainelAdmin() {
 
     useEffect(() => {
         carregarInteracoes()
-    })
+    }, [])
 
     async function carregarInteracoes() {
         setLoading(true)
@@ -40,35 +41,29 @@ export default function PainelAdmin() {
         }
     }
 
-    if (loading) return <p>Carregando interações da igreja...</p>
-
+    if (loading) return <div className='main'><p>Carregando interações da igreja...</p></div>
+    
     return (
-        <>
-            <h1>Painel Administrativo</h1>
-
-            {/* Aqui os alunos devem criar o layout da lista de interações */}
-            {/* Para cada interação, exibir nome, email, status, formularios, ações e menu de atualização */}
-
-            {/* Exemplo (a ser transformado em HTML pelos alunos): */}
-            {/* interacoes.map(...) */}
+        <div className='main'>
             <div className="form-container">
-        <h1>Acompanhamento Administrativo</h1>
-        <form>
-            <label forhtml="nome">Nome ou Identificador:</label>
-            <input type="text" id="nome" name="nome" required/>
+                <h1 className='title'>Acompanhamento Administrativo</h1>
+                
+                <form className='formulario'>
+                    <label forhtml="nome">Nome ou Identificador</label>
+                    <input type="text" id="nome" name="nome" placeholder='Digite seu nome' required/>
 
-            <label forhtml="tipo_acao">Tipo de Ação:</label>
-            <input type="text" id="tipo_acao" name="tipo_acao" required/>
+                    <label forhtml="tipo_acao">Tipo de Ação</label>
+                    <input type="text" id="tipo_acao" name="tipo_acao" placeholder='Digite o tipo de ação' required/>
 
-            <label forhtml="resposta">Resposta:</label>
-            <textarea id="resposta" name="resposta" rows="4" required></textarea>
+                    <label forhtml="resposta">Resposta</label>
+                    <textarea id="resposta" name="resposta" rows="4" placeholder='Digite sua resposta' required></textarea>
 
-            <label forhtml="estado_acao">Estado da Ação:</label>
-            <input type="text" id="estado_acao" name="estado_acao" required/>
+                    <label forhtml="estado_acao">Estado da Ação</label>
+                    <input type="text" id="estado_acao" name="estado_acao" placeholder='Digite o estado da ação' required/>
 
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
-    </>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
     )
 }
